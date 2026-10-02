@@ -56,11 +56,11 @@ const CONFIG = {
 
   /* ---------- Cierre ---------- */
   final: {
-    titulo: 'Gracias por jugar',
-    texto: 'Antes de salir, pasen por sus chucheras. En orden, uno por uno.',
+    titulo: 'Gracias',
+    texto: 'Antes de salir, les tenemos un regalo...',
   },
   patio: {
     minutos: 5,
-    mensaje: 'Aleska dirige. Salgan sin correr.',
+    mensaje: 'Salgan sin correr.',
   },
 };
