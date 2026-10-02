@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El compañerismo | Miguel & Aleska</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤝</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#2b1b6b;--bg2:#3d2a8f;--yel:#ffd23f;--pink:#ff4f9a;--cyan:#3de0e8;--ink:#fff;--dark:#1a0f45}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:Nunito,Arial,sans-serif;font-weight:600;font-size:clamp(17px,1.6vw,24px)}
+h1,h2,h3,.btn,nav button{font-family:'Lilita One',Impact,sans-serif;font-weight:400;letter-spacing:.5px}
+nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:var(--dark)}
+nav button{background:var(--bg2);color:#fff;border:0;border-radius:99px;padding:10px 20px;font-size:1em;cursor:pointer}
+nav button.on{background:var(--yel);color:var(--dark)}
+section{display:none;max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+section.on{display:block}
+.btn{background:var(--yel);color:var(--dark);border:0;border-radius:16px;padding:14px 28px;font-size:1.2em;cursor:pointer;box-shadow:0 6px 0 #b8901a;transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(5px);box-shadow:0 1px 0 #b8901a}
+.btn.pk{background:var(--pink);color:#fff;box-shadow:0 6px 0 #a02a62}
+.btn:focus-visible,nav button:focus-visible,.opt:focus-visible{outline:4px solid var(--cyan);outline-offset:3px}
+.hero{text-align:center;padding-top:6vh}
+.hero h1{font-size:clamp(48px,10vw,130px);line-height:.95;margin:0 0 10px}
+.hero h1 span{display:inline-block;animation:bob 2.4s ease-in-out infinite}
+.hero h1 span:nth-child(2){animation-delay:.4s;color:var(--yel)}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-2deg)}}
+.hero p{max-width:640px;margin:14px auto 28px}
+.names{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.names b{background:var(--pink);padding:8px 22px;border-radius:99px;font-family:'Lilita One',sans-serif;font-weight:400}
+.names b+b{background:var(--cyan);color:var(--dark)}
+h2{font-size:clamp(32px,4.5vw,56px);margin:0 0 6px;color:var(--yel)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--bg2);border:4px solid var(--dark);border-radius:20px;min-height:170px;padding:18px;cursor:pointer;text-align:left;color:#fff;font:inherit}
+.card.lock{display:flex;align-items:center;justify-content:center;font-family:'Lilita One',sans-serif;font-size:1.5em;background:var(--pink)}
+.card.open{background:#fff;color:var(--dark);cursor:default;border-color:var(--yel)}
+.card h3{margin:0 0 8px;font-size:1.4em;color:var(--pink)}
+.card ul{margin:6px 0 0;padding-left:20px}
+.poll button{display:block;width:100%;margin:6px 0;border:0;border-radius:12px;padding:8px 12px;background:var(--bg);color:#fff;font:inherit;text-align:left;cursor:pointer;position:relative;overflow:hidden}
+.poll button i{position:absolute;inset:0 auto 0 0;background:var(--pink);opacity:.8;width:0;transition:width .4s}
+.poll button span{position:relative}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.tile{background:var(--bg2);border:4px solid var(--dark);border-radius:20px;padding:22px;text-align:center}
+.tile .e{font-size:3em}
+.tile.soon{opacity:.55}
+.q{background:var(--bg2);border-radius:22px;padding:22px;margin-top:16px}
+.bar{height:14px;background:var(--dark);border-radius:9px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;width:100%;background:var(--cyan);transform-origin:left}
+.opt{display:block;width:100%;text-align:left;margin:10px 0;padding:14px 18px;border:4px solid var(--dark);border-radius:14px;background:#fff;color:var(--dark);font:inherit;font-weight:800;cursor:pointer}
+.opt.ok{background:#3ddc84}.opt.no{background:#ff5b5b;color:#fff}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.score{font-family:'Lilita One',sans-serif;font-size:1.8em;color:var(--cyan)}
+input[type=text]{font:inherit;padding:12px 16px;border-radius:12px;border:4px solid var(--dark);width:min(320px,100%)}
+.rank{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px}
+.rank li{display:flex;align-items:center;gap:12px;background:var(--bg2);border-radius:16px;padding:12px 18px;border:4px solid var(--dark)}
+.rank li:first-child{background:var(--yel);color:var(--dark)}
+.rank .n{flex:1;font-family:'Lilita One',sans-serif;font-size:1.3em}
+.rank button{border:0;border-radius:10px;background:var(--dark);color:#fff;font:inherit;font-weight:800;padding:6px 12px;cursor:pointer}
+.rank li:first-child button{background:var(--bg)}
+.big{font-family:'Lilita One',sans-serif;font-size:clamp(90px,22vw,260px);color:var(--yel);text-align:center;line-height:1}
+.center{text-align:center}
+.sub{opacity:.85;margin:0}
+.confetti{position:fixed;top:-20px;font-size:28px;pointer-events:none;animation:fall 2.4s linear forwards;z-index:9}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+
+<!-- INICIO -->
+<section id="inicio" class="on">
+  <div class="hero">
+    <h1><span>El</span> <span>compañerismo</span></h1>
+    <div class="names"><b>Miguel</b><b>Aleska</b></div>
+    <p>Fuimos elegidos los mejores amigos del salón. Gracias por la confianza: hoy les toca jugar.</p>
+    <button class="btn" onclick="go('exponer');pop()">¡Empezar!</button>
+  </div>
+</section>
+
+<!-- EXPONER -->
+<section id="exponer">
+  <h2>¿De qué va esto?</h2>
+  <p class="sub">Toca una tarjeta para abrirla.</p>
+  <div class="grid" id="cards"></div>
+</section>
+
+<!-- JUEGOS -->
+<section id="juegos">
+  <h2>Hora de jugar</h2>
+  <div class="menu">
+    <div class="tile"><div class="e">⚡</div><h3>Quiz</h3><p>15 segundos por pregunta. Sumas puntos.</p><button class="btn" onclick="go('quiz')">Jugar</button></div>
+    <div class="tile soon"><div class="e">🕵️</div><h3>¿Quién es quién?</h3><p>Próximamente</p></div>
+    <div class="tile soon"><div class="e">🧱</div><h3>Pico Park</h3><p>Próximamente: todos juntos o nadie pasa</p></div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div id="qstart" class="center">
+    <h2>Quiz del compañerismo</h2>
+    <p>Escribe tu nombre y tu equipo (A, B, C o D).</p>
+    <p><input type="text" id="qname" placeholder="Tu nombre" maxlength="14"></p>
+    <button class="btn" onclick="startQuiz()">Empezar quiz</button>
+  </div>
+  <div id="qplay" style="display:none">
+    <div class="top"><h3 id="qcount" style="margin:0"></h3><div class="score" id="qscore">0 pts</div></div>
+    <div class="q"><div class="bar"><i id="qbar"></i></div><h3 id="qtext" style="margin:0 0 10px;color:var(--yel)"></h3><div id="qopts"></div></div>
+  </div>
+  <div id="qend" class="center" style="display:none">
+    <h2>¡Terminaste!</h2>
+    <div class="big" id="qfinal">0</div>
+    <p id="qmsg"></p>
+    <button class="btn" onclick="go('juegos')">Volver a juegos</button>
+  </div>
+</section>
+
+<!-- PREMIOS -->
+<section id="premios">
+  <h2>Ranking de equipos</h2>
+  <p class="sub">Miguel suma los puntos desde la PC del proyector.</p>
+  <ul class="rank" id="rank"></ul>
+  <div class="center"><button class="btn pk" onclick="go('patio')">Terminar</button></div>
+  <p class="center">Antes de salir: pasa por tus chucheras 🍬</p>
+</section>
+
+<!-- PATIO -->
+<section id="patio" class="center">
+  <h2>¡Al patio!</h2>
+  <p>Aleska dirige los juegos. Sal en orden y sin correr.</p>
+  <div class="big" id="cd">05:00</div>
+  <button class="btn" onclick="startCd()">Iniciar cuenta regresiva</button>
+</section>
+
+<script>
+const $=id=>document.getElementById(id);
+const secs=[['inicio','🏠 Inicio'],['exponer','📖 Exponer'],['juegos','🎮 Juegos'],['premios','🏆 Premios'],['patio','⚽ Patio']];
+$('nav').innerHTML=secs.map(s=>`<button data-s="${s[0]}" onclick="go('${s[0]}')">${s[1]}</button>`).join('');
+function go(id){document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.s===id||(id==='quiz'&&b.dataset.s==='juegos')));
+  if(id==='premios')renderRank();window.scrollTo(0,0)}
+go('inicio');
+
+/* sonidos */
+let ac;function beep(f,d=.15,t='square'){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type=t;o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}}
+const good=()=>{beep(660,.1);setTimeout(()=>beep(990,.2),100)},bad=()=>beep(150,.35,'sawtooth');
+function pop(){beep(520,.1);const e=['🎉','🤝','⭐','🔥','💛'];for(let i=0;i<24;i++){const c=document.createElement('div');c.className='confetti';c.textContent=e[i%5];c.style.left=Math.random()*100+'vw';c.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),3200)}}
+
+/* TARJETAS (edita el texto aquí) */
+const polls={'Responder':0};const opts=['Te ayuda cuando lo necesitas','Te defiende sin dudar','Te hace reír','Guarda tus secretos'];const votes=[0,0,0,0];
+const cards=[
+ {t:'¿Qué es?',h:'<p>Es la unión entre personas que comparten un mismo lugar y un mismo objetivo. Se nota en cómo nos tratamos cuando nadie nos mira.</p>'},
+ {t:'4 valores',h:'<ul><li><b>Respeto:</b> escuchar aunque piensen distinto</li><li><b>Ayuda:</b> dar una mano sin que lo pidan</li><li><b>Lealtad:</b> estar ahí en las buenas y en las malas</li><li><b>Empatía:</b> ponerte en el lugar del otro</li></ul>'},
+ {t:'Encuesta en vivo',poll:1},
+ {t:'Historia del salón',h:'<p><i>Aleska y Miguel: escriban aquí una anécdota real y graciosa del salón (sin burlarse de nadie).</i></p>'},
+ {t:'Sin equipo no se gana',h:'<p>En un juego donde todos deben llegar a la puerta, si uno se queda atrás, nadie pasa. En el salón pasa igual. Ahora lo comprobamos.</p>'}
+];
+function drawCards(){$('cards').innerHTML=cards.map((c,i)=>c.open?
+ `<div class="card open"><h3>${c.t}</h3>${c.poll?pollHtml():c.h}</div>`:
+ `<button class="card lock" onclick="openCard(${i})">🔒 ${c.t}</button>`).join('')}
+function openCard(i){cards[i].open=true;beep(700,.12);drawCards()}
+function pollHtml(){const tot=votes.reduce((a,b)=>a+b,0)||1;return '<p>¿Qué hace un buen compañero?</p><div class="poll">'+opts.map((o,i)=>`<button onclick="vote(${i})"><i style="width:${votes[i]/tot*100}%"></i><span>${o} (${votes[i]})</span></button>`).join('')+'</div>'}
+function vote(i){votes[i]++;beep(800,.08);drawCards()}
+drawCards();
+
+/* QUIZ */
+const QS=[
+ ['¿Qué es el compañerismo?',['Competir contra todos','Apoyo y respeto entre compañeros','Copiar la tarea','Ignorar al resto'],1],
+ ['Un compañero se cae en el recreo. ¿Qué haces?',['Me río','Sigo jugando','Lo ayudo a levantarse','Lo grabo'],2],
+ ['Ponerte en el lugar del otro se llama…',['Empatía','Suerte','Chisme','Orgullo'],0],
+ ['¿Cuál es un acto de lealtad?',['Hablar mal a sus espaldas','No dejarlo solo cuando lo necesita','Contar sus secretos','Cambiar de grupo'],1],
+ ['Alguien piensa distinto a ti. Lo respetas si…',['Lo escuchas','Lo callas','Te burlas','Lo ignoras'],0],
+ ['Si en un trabajo en equipo uno se queda atrás…',['Que se arregle solo','Lo ayudamos a llegar','Lo dejamos','Lo culpamos'],1]
+];
+let qi=0,pts=0,tm,tleft=15,locked=false,player='';
+function startQuiz(){player=$('qname').value.trim()||'Anónimo';qi=0;pts=0;$('qstart').style.display='none';$('qend').style.display='none';$('qplay').style.display='block';showQ()}
+function showQ(){locked=false;const q=QS[qi];$('qcount').textContent=`Pregunta ${qi+1} de ${QS.length}`;$('qscore').textContent=pts+' pts';$('qtext').textContent=q[0];
+ $('qopts').innerHTML=q[1].map((o,i)=>`<button class="opt" onclick="ans(${i})">${o}</button>`).join('');
+ tleft=15;tick();clearInterval(tm);tm=setInterval(()=>{tleft--;tick();if(tleft<=0){clearInterval(tm);ans(-1)}},1000)}
+function tick(){const b=$('qbar');b.style.transition='none';b.style.width=(tleft/15*100)+'%';b.style.background=tleft<=5?'var(--pink)':'var(--cyan)'}
+function ans(i){if(locked)return;locked=true;clearInterval(tm);const q=QS[qi],bs=document.querySelectorAll('.opt');
+ bs[q[2]].classList.add('ok');if(i===q[2]){pts+=100+tleft*10;good()}else{if(i>=0)bs[i].classList.add('no');bad()}
+ $('qscore').textContent=pts+' pts';setTimeout(()=>{qi++;qi<QS.length?showQ():endQuiz()},1300)}
+function endQuiz(){$('qplay').style.display='none';$('qend').style.display='block';$('qfinal').textContent=pts;
+ $('qmsg').textContent=`${player}, anota tus puntos y avísale a tu equipo.`;if(pts>=QS.length*100)pop()}
+
+/* RANKING (el host suma puntos) */
+let teams=JSON.parse(localStorage.getItem('teams')||'null')||[{n:'Equipo A',p:0},{n:'Equipo B',p:0},{n:'Equipo C',p:0},{n:'Equipo D',p:0}];
+function renderRank(){const s=[...teams].map((t,i)=>({...t,i})).sort((a,b)=>b.p-a.p);const m=['🥇','🥈','🥉'];
+ $('rank').innerHTML=s.map((t,k)=>`<li><span>${m[k]||'⭐'}</span><span class="n">${t.n}</span><b>${t.p}</b><button onclick="addP(${t.i},100)">+100</button><button onclick="addP(${t.i},-100)">−100</button></li>`).join('')}
+function addP(i,v){teams[i].p=Math.max(0,teams[i].p+v);try{localStorage.setItem('teams',JSON.stringify(teams))}catch(e){}v>0?good():bad();renderRank()}
+
+/* PATIO */
+let ct;function startCd(){let s=300;clearInterval(ct);ct=setInterval(()=>{s--;$('cd').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');if(s<=0){clearInterval(ct);$('cd').textContent='¡YA!';pop()}},1000)}
+</script>
+</body>
+</html>
