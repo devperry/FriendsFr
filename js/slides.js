@@ -90,10 +90,10 @@ const Slides = (() => {
     const { frases } = CONFIG.quienEsQuien;
     if (!frases.length) return [];
 
-    const phrase = f => `<small>¿Quién lo diría?</small><div class="phrase">“${esc(f.frase)}”</div>`;
+    const phrase = f => `<small>¿Quién lo diría/Actuaria?</small><div class="phrase">“${esc(f.frase)}”</div>`;
 
     return [
-      info({ theme: 'pink', emoji: '🕵️', titulo: '¿Quién es quién?', texto: 'Leemos una frase. Adivinen quién la diría.', onEnter: Sound.good }),
+      info({ theme: 'pink', emoji: '🕵️', titulo: '¿Quién es quién?', texto: 'Leemos una frase. Adivinen quién la diría o Actuaria.', onEnter: Sound.good }),
       ...frases.flatMap(f => [
         slide('indigo', phrase(f), Sound.tick),
         slide('indigo', phrase(f) + `<div class="name">${esc(f.quien)}</div>`, celebrate),

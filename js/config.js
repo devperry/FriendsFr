@@ -47,7 +47,8 @@ const CONFIG = {
   quienEsQuien: {
     frases: [
       { frase: 'Ya perdí, ya perdí', quien: 'Yamir Arteaga' },
-      // { frase: 'Escribe aquí la frase', quien: 'Nombre y apellido' },
+      { frase: 'Siempre le hechan la culpa', quien: 'Gavilan' },
+      
     ],
   },
 
